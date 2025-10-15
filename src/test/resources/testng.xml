@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AutomationSuite">
+    <parameter name="password" value="Global"/>
+    <test name="RegressionTests">
+        <parameter name="username" value="Vaishakh"/>
+        <parameter name="password" value="Vaishakh22"/>
+        <classes>
+            <class name="DemoTest"/>
+        </classes>
+    </test>
+</suite>
