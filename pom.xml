@@ -89,7 +89,6 @@
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <!--suppress UnresolvedMavenProperty -->
                         <env>${env}</env>
                         <url>${url}</url>
                     </systemPropertyVariables>

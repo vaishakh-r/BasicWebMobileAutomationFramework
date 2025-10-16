@@ -19,8 +19,8 @@ public class BaseTest {
 
         // Common setup code for all tests
         System.out.println("Setting up the test environment...");
-        environment =  System.getProperty("environment", "dev");
-        String url = ConfigReader.get("url");
+        environment =  System.getProperty("env", "dev");
+        String url = ConfigReader.get("baseUrl");
         System.out.println("URL Config"+url);
     }
 
