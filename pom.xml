@@ -28,7 +28,7 @@
             </properties>
         </profile>
         <profile>
-            <id>uat</id>
+            <id>staging</id>
             <properties>
                 <env>staging</env>
                 <url>https://www.google.com</url>
@@ -89,6 +89,7 @@
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
+                        <!--suppress UnresolvedMavenProperty -->
                         <env>${env}</env>
                         <url>${url}</url>
                     </systemPropertyVariables>
