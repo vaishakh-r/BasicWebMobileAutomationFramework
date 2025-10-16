@@ -1,3 +1,5 @@
+import base.BaseTest;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import io.cucumber.java.DataTableType;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
@@ -5,7 +7,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.ExcelUtil;
 
-public class DemoTest {
+public class DemoTest extends BaseTest {
 
     public static void main(String[] args){
 
@@ -16,7 +18,6 @@ public class DemoTest {
     public  void basicTest(String username, @Optional("Dummy") String password) {
         System.out.println("baseTest Called "+username+" "+password);
     }
-
 
     @DataProvider(name = "getLoginData2")
     public  Object[][] getLoginData(){

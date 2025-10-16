@@ -10,9 +10,18 @@ public class BaseTest {
 
     @BeforeSuite
     public void setup() {
+        // Read Url from profile based on environment
+        String urlFromProfile = System.getProperty("url","noUrl");
+        String envFromProfile = System.getProperty("env","noEnv");
+
+        System.out.println("URL from Profile: " + urlFromProfile);
+        System.out.println("env from Profile: " + envFromProfile);
+
         // Common setup code for all tests
         System.out.println("Setting up the test environment...");
         environment =  System.getProperty("environment", "dev");
+        String url = ConfigReader.get("url");
+        System.out.println("URL Config"+url);
     }
 
 }
