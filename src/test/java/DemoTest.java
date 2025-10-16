@@ -1,6 +1,7 @@
 import base.BaseTest;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import io.cucumber.java.DataTableType;
+import io.qameta.allure.Step;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -13,6 +14,7 @@ public class DemoTest extends BaseTest {
 
     }
 
+    @Step("Basic Test Step")
     @Parameters({"username","password"})
     @Test
     public  void basicTest(String username, @Optional("Dummy") String password) {
@@ -38,11 +40,13 @@ public class DemoTest extends BaseTest {
         return ExcelUtil.getTestData(filePath,sheetName);
     }
 
+    @Step("Databaprovider exampled")
     @Test(dataProvider = "getLoginData2")
     public  void dataTest(String username, String password) {
         System.out.println("dataTest Called "+username+" "+password);
     }
 
+    @Step("Databaprovider ecample from excel")
     @Test(dataProvider =  "getLoginDataFromExcel")
     public  void testDataFromExcel(Double userId, String firstName, String lastName, String gender, String country, Double age) {
         System.out.println("testDataFromExcel Called "+firstName+" "+lastName+" "+age);
