@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run TestNG tests
-        run: mvn clean test -P${environment}
+        run: mvn clean test -P${{ github.event.inputs.environment }}
 
       # Generate Allure Report using Maven plugin
       - name: Generate Allure Report
