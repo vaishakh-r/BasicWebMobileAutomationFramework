@@ -30,11 +30,9 @@ jobs:
       - name: Run TestNG tests
         run: mvn clean test -Pstaging
 
-      - name: Install Allure CLI
-        run: |
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.zip
-          unzip allure-commandline.zip -d /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+      # Generate Allure Report using Maven plugin
+      - name: Generate Allure Report
+        run: mvn allure:report
       
       - name: Generate Allure report
         run: |
@@ -45,4 +43,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: target/allure-report
+          path: target/site/allure-maven-plugin/
