@@ -4,6 +4,12 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select environment"
+        required: true
+        type: choice
+        options: [ dev, staging, prod ]
 
 jobs:
   build:
@@ -28,15 +34,11 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run TestNG tests
-        run: mvn clean test -Pstaging
+        run: mvn clean test -P${environment}
 
       # Generate Allure Report using Maven plugin
       - name: Generate Allure Report
         run: mvn allure:report
-      
-      - name: Generate Allure report
-        run: |
-          allure generate target/allure-results --clean -o target/allure-report
 
       - name: Upload Allure report as artifact
         if: always()
